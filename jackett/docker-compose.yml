@@ -1,0 +1,14 @@
+---
+version: "2.1"
+services:
+  jackett:
+    image: linuxserver/jackett:latest
+    container_name: jackett
+    network_mode: host
+    environment:
+      - PUID=112
+      - PGID=117
+    volumes:
+      - /media/torrents/completed:/downloads
+      - /root/docker/jackett/config:/config
+    restart: unless-stopped

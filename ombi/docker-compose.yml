@@ -1,0 +1,13 @@
+---
+version: "2.1"
+services:
+  ombi:
+    image: linuxserver/ombi:latest
+    container_name: ombi
+    network_mode: host
+    environment:
+      - PUID=112
+      - GUID=117
+    volumes:
+      - /root/docker/ombi/config:/config
+    restart: unless-stopped

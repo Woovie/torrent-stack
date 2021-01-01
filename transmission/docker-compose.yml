@@ -1,0 +1,14 @@
+---
+version: "2.1"
+services:
+  transmission:
+    image: linuxserver/transmission:latest
+    container_name: transmission
+    network_mode: host
+    environment:
+      - PUID=112
+      - PGID=117
+    volumes:
+      - /media/torrents:/media/torrents
+      - /root/docker/transmission/config:/config
+    restart: unless-stopped
